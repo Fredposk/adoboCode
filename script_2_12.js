@@ -4,7 +4,7 @@ function sum() {
     // arguments is array-like, must make into array
     let args = [...arguments];
     // console.log(args);
-    return args.reduce((a, b) => a + b, 0);
+    return args.reduce((a, b) => a + b);
 }
 
 console.log(sum(5, 10));
@@ -22,6 +22,7 @@ function waitThenRun() {
     }, 3000);
 }
 
+waitThenRun();
 // not sure I understood the question. Testcase works and waitThenRun() works in console
 
 // #3
@@ -53,9 +54,7 @@ function answer(num) {
     } else if (num <= bigN) {
         for (let i = num; i < bigN; i *= 10) {
             var response = i;
-            console.log(i);
         }
-        // return arr.length;
         return response * 10;
     }
 }
@@ -69,7 +68,7 @@ console.log(answer(2000000)); // 2000000
 let arry = [];
 let totaler = function getTotal(num) {
     arry.push(num);
-    return arry.reduce((a, b) => a + b, 0);
+    return arry.reduce((a, b) => a + b);
 };
 
 console.log(totaler(1));
