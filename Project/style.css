@@ -1,7 +1,5 @@
 * {
     box-sizing: border-box;
-    padding: 0;
-    border: 0;
 }
 
 body {
@@ -27,12 +25,12 @@ header {
 }
 
 .hamburger {
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     position: relative;
     float: right;
     display: inline;
-    padding: 10px;
+    padding: 10x;
     top: 10px;
 }
 
@@ -43,8 +41,16 @@ header {
 .container {
     color: white;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 40px;
     position: absolute;
     top: 50%;
     left: 50%;
     z-index: 1;
+}
+
+.button {
+    background-color: yellow;
+    color: goldenrod;
+    width: 200px;
+    border: goldenrod;
 }
