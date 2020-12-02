@@ -7,9 +7,20 @@ function sum() {
     return args.reduce((a, b) => a + b);
 }
 
+// Just in case
+function sum2() {
+    let total = 0;
+    for (let i = 0; i < arguments.length; i++) total += arguments[i];
+    return total;
+}
+
 console.log(sum(5, 10));
 console.log(sum(5, 10, 15));
 console.log(sum(5, 10, 15, 100, 200));
+//
+console.log(sum2(5, 10));
+console.log(sum2(5, 10, 15));
+console.log(sum2(5, 10, 15, 100, 200));
 
 // 2
 
