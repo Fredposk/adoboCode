@@ -8,7 +8,7 @@ function reverseArray(arr) {
     // console.log(arr);
     return arrY;
 }
-// console.log(reverseArray(["Hello", "Goodbye", 3, "buddy", "spiced"]));
+// reverseArray(["Hello", "Goodbye", 3, "buddy", "spiced"]);
 
 // #3
 function getLessThanZero(arr) {
@@ -16,4 +16,4 @@ function getLessThanZero(arr) {
     return answer3;
 }
 
-// console.log(getLessThanZero([1, 2, -1, -90, 10]));
+// getLessThanZero([1, 2, -1, -90, 10]);
