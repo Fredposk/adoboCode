@@ -4,7 +4,8 @@ function reverseArray(arr) {
     for (let i = 0; i < arr.length; i++) {
         arrY.unshift(arr[i]);
     }
-    console.log(arr);
+    // console.log to check if array unchanged
+    // console.log(arr);
     return arrY;
 }
 // console.log(reverseArray(["Hello", "Goodbye", 3, "buddy", "spiced"]));
