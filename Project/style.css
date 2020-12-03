@@ -1,5 +1,7 @@
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
@@ -7,19 +9,16 @@ body {
 }
 
 header {
-    top: 0;
-    width: 100%;
     background-color: white;
+    width: 100%;
     height: 70px;
-    position: absolute;
+    position: relative;
 }
 
 .logo img {
     width: 250px;
     height: 70px;
-    position: relative;
-    float: left;
-    display: inline;
+    display: inline-block;
     left: 0;
     padding: 10px;
 }
@@ -27,10 +26,10 @@ header {
 .hamburger {
     width: 60px;
     height: 60px;
-    position: relative;
-    float: right;
-    display: inline;
-    padding: 10x;
+    position: absolute;
+    right: 0;
+    display: inline-block;
+    padding: 10px;
     top: 10px;
 }
 
@@ -40,17 +39,42 @@ header {
 
 .container {
     color: white;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Times New Roman', Times, serif;
     font-size: 40px;
+    text-align: center;
     position: absolute;
     top: 50%;
     left: 50%;
-    z-index: 1;
 }
 
 .button {
     background-color: yellow;
-    color: goldenrod;
-    width: 200px;
-    border: goldenrod;
+    border: rgb(218, 165, 32) 0.5em solid;
+    color: rgb(218, 165, 32);
+    font-size: 15px;
+    padding: 10px 50px;
+    cursor: pointer;
+    border-radius: 50px;
+}
+
+.footer {
+    background-color: grey;
+    width: 100%;
+    height: 30%;
+    position: fixed;
+    z-index: 1;
+}
+
+@media (prefers-color-scheme: dark) {
+    header {
+        background-color: rgba(0, 0, 0, 0.699);
+    }
+
+    .footer {
+        background-color: rgba(0, 0, 0, 0.699);
+    }
+
+    .button {
+        background-color: rgba(0, 0, 0, 0.699);
+    }
 }
