@@ -1,11 +1,11 @@
 // #1
 
-function sum() {
-    // arguments is array-like, must make into array
-    let args = [...arguments];
-    // console.log(args);
-    return args.reduce((a, b) => a + b);
-}
+// function sum() {
+//     // arguments is array-like, must make into array
+//     let args = [...arguments];
+//     // console.log(args);
+//     return args.reduce((a, b) => a + b);
+// }
 
 // Just in case
 function sum2() {
@@ -14,9 +14,9 @@ function sum2() {
     return total;
 }
 
-console.log(sum(5, 10));
-console.log(sum(5, 10, 15));
-console.log(sum(5, 10, 15, 100, 200));
+// console.log(sum(5, 10));
+// console.log(sum(5, 10, 15));
+// console.log(sum(5, 10, 15, 100, 200));
 //
 console.log(sum2(5, 10));
 console.log(sum2(5, 10, 15));
@@ -57,13 +57,13 @@ function answer(num) {
 */
 
 function answer(num) {
-    let bigN = 1000000;
+    var bigN = 1000000;
     if (num < 0 || num === 0 || typeof num !== 'number') {
         return 'ERROR';
     } else if (num >= bigN) {
         return num;
     } else if (num <= bigN) {
-        for (let i = num; i < bigN; i *= 10) {
+        for (var i = num; i < bigN; i *= 10) {
             var response = i;
         }
         return response * 10;
@@ -76,13 +76,21 @@ console.log(answer(2000000)); // 2000000
 
 // BONUS
 
-let arry = [];
-let totaler = function getTotal(num) {
-    arry.push(num);
-    return arry.reduce((a, b) => a + b);
-};
+// let arry = [];
+// let totaler = function getTotal(num) {
+//     arry.push(num);
+//     return arry.reduce((a, b) => a + b);
+// };
 
-console.log(totaler(1));
-console.log(totaler(2));
-console.log(totaler(5));
-console.log(arry);
+// future reference fix is to overwrite the variable
+function getTotaler() {
+    var total = 0;
+    return function (num) {
+        total += num;
+        return total;
+    };
+}
+
+console.log(getTotaler(1));
+console.log(getTotaler(2));
+console.log(getTotaler(5));
