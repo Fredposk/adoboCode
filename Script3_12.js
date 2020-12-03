@@ -1,7 +1,7 @@
 // #2
 function reverseArray(arr) {
     var arrY = [];
-    for (let i = 0; i < arr.length; i++) {
+    for (var i = 0; i < arr.length; i++) {
         arrY.unshift(arr[i]);
     }
     // console.log to check if array unchanged
