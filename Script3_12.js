@@ -1,14 +1,14 @@
 function each(objOrArr, callback) {
     if (Array.isArray(objOrArr)) {
         // return "isArray"
-        objOrArr.forEach((element, position) => {
+        objOrArr.forEach(function (element, position) {
             callback(element, position);
         });
     } else if (typeof objOrArr === 'object') {
         //  return "isObject"
         for (var key in objOrArr) {
             {
-                callback(objOrArr[key], [key]);
+                callback(objOrArr[key], key);
             }
         }
     }
@@ -46,9 +46,11 @@ function reverseArray(arr) {
 
 // #3
 
-function getLessThanZero(arr) {
-    var answer3 = arr.filter((num) => num < 0);
-    return answer3;
+function getLessThanZero2(arr) {
+    var arry = arr.filter(function (n) {
+        return n < 0;
+    });
+    return arry;
 }
 
 // getLessThanZero([1, 2, -1, -90, 10]);
