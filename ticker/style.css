@@ -1,0 +1,21 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+body {
+    background-color: aqua;
+}
+
+.ticker {
+    border: rgb(17, 46, 209) 3px solid;
+    overflow: hidden;
+    height: 50px;
+    position: absolute;
+}
+
+.headlines {
+    white-space: nowrap;
+    font-size: 30px;
+    position: relative;
+    left: 900px;
+}
