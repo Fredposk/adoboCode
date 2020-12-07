@@ -14,9 +14,8 @@ function move() {
         headlines.appendChild(oldChild);
         console.log(oldChild);
     }
-    // links[0].appendChild(ticker);
-    headlines.style.left = left + 'px';
     requestAnimationFrame(move);
+    headlines.style.left = left + 'px';
 }
 // move();
 console.log(left);
