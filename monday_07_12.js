@@ -6,7 +6,7 @@ function makeMeStyle(string) {
     for (var i = 0; i < thing.length; i++) {
         arry.push(thing[i]);
     }
-    arry.forEach((element) => {
+    arry.forEach(function (element) {
         element.style.fontStyle = 'italic';
         element.style.textDecoration = 'underline';
         element.style.fontWeight = 'bold';
