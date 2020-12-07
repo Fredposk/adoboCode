@@ -7,14 +7,16 @@ var width = links[0].offsetWidth;
 console.log(width);
 
 function move() {
-    // left = Math.abs(left);
     left--;
     if (left < width) {
         ticker.style.right = width + 'px';
+        var oldChild = headlines.removeChild(links[0]);
+        headlines.appendChild(oldChild);
+        console.log(oldChild);
     }
     // links[0].appendChild(ticker);
     headlines.style.left = left + 'px';
     requestAnimationFrame(move);
 }
-move();
+// move();
 console.log(left);
