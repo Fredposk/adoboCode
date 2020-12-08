@@ -7,7 +7,7 @@ body {
 }
 
 .ticker {
-    border: rgb(17, 46, 209) 3px solid;
+    /* border: rgb(17, 46, 209) 3px solid; */
     overflow: hidden;
     height: 50px;
     position: absolute;
