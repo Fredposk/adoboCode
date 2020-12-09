@@ -3,10 +3,10 @@ var hamburger = document.querySelector('#hamburger');
 // console.log(hamburger);
 // Get navBar
 var whiteNavBar = document.querySelector('.whiteNavBar');
-console.log(whiteNavBar);
+// console.log(whiteNavBar);
 // Get close button
 var closeNav = document.querySelector('.closeBtn');
-console.log(closeNav);
+// console.log(closeNav);
 //Get outside Area
 var outside = document.querySelector('.overlay');
 // console.log(outside);
