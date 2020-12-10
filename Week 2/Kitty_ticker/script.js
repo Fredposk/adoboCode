@@ -6,22 +6,22 @@ var currentKitty = 0;
 // functions
 
 function remove() {
-    kitties[currentKitty - 1].classList.remove('onscreen');
+    kitties[currentKitty].classList.remove('onscreen');
 }
 function exitStage() {
-    kitties[currentKitty - 1].classList.add('exit-left');
+    kitties[currentKitty].classList.add('exit-left');
 }
 function addOnScreen() {
     kitties[currentKitty].classList.add('onscreen');
 }
 ///////////////// Main function
 function moveKitties() {
+    remove();
+    exitStage();
     currentKitty++;
     if (currentKitty >= kitties.length) {
         currentKitty = 0;
     }
-    remove();
-    exitStage();
     addOnScreen();
     // this moves the kittens again
     setTimeout(moveKitties, 5000);
