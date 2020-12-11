@@ -36,10 +36,13 @@ function moveKitties() {
     remove();
     exitStage();
     dotOff();
-
-    currentKitty++;
-    if (currentKitty >= kitties.length) {
-        currentKitty = 0;
+    if (arguments.length) {
+        currentKitty = arguments[0];
+    } else {
+        currentKitty++;
+        if (currentKitty >= kitties.length) {
+            currentKitty = 0;
+        }
     }
 
     addOnScreen();
@@ -56,11 +59,11 @@ document.addEventListener('transitionend', function (e) {
     if (e.target.className === 'exit-left') {
         e.target.classList.remove('exit-left');
     }
-    isInTransition = false;
 });
 
 for (var i = 0; i < dots.length; i++) {
     dots[i].addEventListener('click', getClickHandler(i));
+    isInTransition = false;
 }
 
 function getClickHandler(i) {
