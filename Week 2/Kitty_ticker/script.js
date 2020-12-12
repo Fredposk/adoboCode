@@ -68,7 +68,10 @@ for (var i = 0; i < dots.length; i++) {
 
 function getClickHandler(i) {
     return function () {
-        clearTimeout(timer);
         moveKitties(i);
+        if (currentKitty === i) {
+            // return;
+            clearTimeout(timer);
+        }
     };
 }
