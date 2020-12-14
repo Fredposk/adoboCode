@@ -1,5 +1,5 @@
-//get the box
-var box = document.querySelector('.box');
+//get the box/ not needed
+// var box = document.querySelector('.box');
 //get the bar
 var bar = document.getElementById('bar');
 //bottom pane is on top of the first pane so we keep 1 visible and the other will be moving
@@ -16,7 +16,7 @@ bar.addEventListener('mousedown', function (e) {
     posInit = bar.offsetLeft - e.clientX;
     // console.log(bar.offsetLeft);
 });
-document.addEventListener('mouseup', function (e) {
+document.addEventListener('mouseup', function () {
     clicked = false;
 });
 
