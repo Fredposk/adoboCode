@@ -172,6 +172,15 @@ footer {
     font-size: 12px;
 }
 
+.toaster {
+    /* display: none; */
+    visibility: hidden;
+    position: fixed;
+    z-index: 20;
+    top: 30%;
+    right: calc(50% - 175px);
+}
+
 @media (max-width: 500px) {
     header {
         height: 70px;

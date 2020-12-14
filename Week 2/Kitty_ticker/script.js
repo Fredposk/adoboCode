@@ -67,11 +67,17 @@ for (var i = 0; i < dots.length; i++) {
 }
 
 function getClickHandler(i) {
-    return function () {
+    return function (e) {
         moveKitties(i);
         if (currentKitty === i) {
             // return;
             clearTimeout(timer);
+        }
+        if (e.target.contains('on')) {
+            return;
+        }
+        if (isInTransition) {
+            return;
         }
     };
 }
