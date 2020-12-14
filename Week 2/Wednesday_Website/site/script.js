@@ -39,13 +39,13 @@ outside.addEventListener('click', function (e) {
 });
 
 // event to show modal after 1 sec
-$(document).ready(function () {
-    setTimeout(function () {
-        modal.css({
-            visibility: 'visible',
-        });
-    }, 1000);
-});
+// $(document).ready(function () {
+setTimeout(function () {
+    modal.css({
+        visibility: 'visible',
+    });
+}, 1000);
+// });
 // event to hide modal after clicking close btn
 $(modalBtn).on('click', function () {
     modal.css({

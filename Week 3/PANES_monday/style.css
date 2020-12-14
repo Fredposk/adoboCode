@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+}
+.box {
+    position: relative;
+    height: 405px;
+    width: 805px;
+    border: red 5px solid;
+}
+
+.panes1 {
+    height: 395px;
+    width: 795px;
+    position: absolute;
+    overflow: hidden;
+    /* display: none; */
+}
+
+.panes2 {
+    height: 395px;
+    width: 400px;
+    position: absolute;
+    overflow: hidden;
+    /* display: none; */
+}
+
+#bar {
+    height: 395px;
+    border: hotpink 5px solid;
+    position: absolute;
+    left: 50%;
+    z-index: 20;
+    cursor: pointer;
+}
