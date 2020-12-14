@@ -1,21 +1,39 @@
-var headlines = document.querySelector('.headlines');
-var ticker = document.querySelector('.ticker');
-var links = document.getElementsByTagName('a');
-var left = headlines.offsetLeft;
-var width = links[0].offsetWidth;
+// var headlines = document.querySelector('.headlines');
+var headlines = $('.headlines');
+// var ticker = document.querySelector('.ticker');
+var ticker = $('.ticker');
+// var links = document.getElementsByTagName('a');
+var links = $('a');
+// var left = headlines.offsetLeft;
+var left = $(headlines).offset();
+// var width = links[0].offsetWidth;
+var width = links.eq(0).outerWidth();
+
+// console.log(headlines);
+// console.log(ticker);
+// console.log(links);
+// console.log(left);
+// console.log(width);
 
 function move() {
     left--;
     if (left < width) {
-        ticker.style.right = width + 'px';
-        var oldChild = headlines.removeChild(links[0]);
-        headlines.appendChild(oldChild);
+        // ticker.style.right = width + 'px';
+        $(ticker).css({
+            right: width + 'px',
+        });
+        var oldChild = headlines.remove.eq(links(0));
+        $(headlines).append(oldChild);
         // console.log(oldChild);
         left += width;
-        width = links[0].offsetWidth;
-    }
+        // width = links[0].offsetWidth;
+        width = $(links).eq(0).outerWidth();
+
     a = requestAnimationFrame(move);
-    headlines.style.left = left + 'px';
+    // headlines.style.left = left + 'px';
+    $(headlines).css({
+        left: left + 'px',
+    });
 }
 move();
 
