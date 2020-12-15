@@ -1,0 +1,20 @@
+* {
+    background-color: aqua;
+}
+
+.maindiv {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 20%;
+    left: calc(50% - 80px);
+    /* border: violet 3px solid; */
+}
+
+.form {
+    background-color: whitesmoke;
+}
+
+.toggle {
+    background: #ccc;
+}
