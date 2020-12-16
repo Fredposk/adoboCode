@@ -58,10 +58,10 @@
 
         $('.country').on('mousedown', function () {
             if ($('.country').hasClass('toggle')) {
-                $(searchField).text($(this));
+                $(searchField).val($(this).text());
                 searchField.focus();
                 resultsContainer.empty();
-                console.log($(this));
+                // console.log($(this));
             }
         });
 
@@ -70,6 +70,41 @@
         // (up, down, and enter)
         // in jQuery remember that accessing values in array like lists does
         // not work like so: listName[0]
+
+        $(document).on('keydown', function (e) {
+            var country = $('.country');
+            if (e.keyCode === 40) {
+                if (!country.hasClass('toggle')) {
+                    country.eq(0).addClass('toggle');
+                } else if (country.eq(-1).hasClass('toggle')) {
+                    return;
+                } else {
+                    var countrY = $('toggle');
+                    $('.country').removeClass('toggle');
+                    countrY.next().addClass('toggle');
+                }
+            }
+            if (e.keyCode === 38) {
+                if (!country.hasClass('toggle')) {
+                    country.eq(-1).addClass('toggle');
+                } else if (country.eq(0).hasClass('toggle')) {
+                    return;
+                } else {
+                    countrY = $('toggle');
+                    $('.country').removeClass('toggle');
+                    countrY.prev().addClass('toggle');
+                }
+            }
+
+            if (e.keyCode === 13) {
+                if ($('.country').hasClass('toggle')) {
+                    $(searchField).val($(this).text());
+                    searchField.focus();
+                    resultsContainer.empty();
+                    // console.log($(this));
+                }
+            }
+        });
 
         // 5. focus event
         $(document).ready(function () {
