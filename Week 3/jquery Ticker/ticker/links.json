@@ -1,0 +1,34 @@
+[
+    {
+        "city": "Berlin ...",
+        "site": "https://www.berliner-zeitung.de/news/berlin-verlaengerung-der-weihnachtsferien-gilt-als-wahrscheinlich-li.124559"
+    },
+    {
+        "city": "São Paulo ...",
+        "site": "https://www1.folha.uol.com.br/internacional/en/"
+    },
+    {
+        "city": "Dubai ...",
+        "site": "https://gulfnews.com/uae/dubai-updates-travel-rules-related-to-covid-19-pcr-test-1.75722969"
+    },
+    {
+        "city": "Paris ...",
+        "site": "https://www.nbcnews.com/news/world/violence-erupts-during-paris-protest-against-macron-s-security-law-n1250134"
+    },
+    {
+        "city": "London ...",
+        "site": "https://www.bbc.com/news/uk-england-london-55228119"
+    },
+    {
+        "city": "Tokyo ...",
+        "site": "https://www.japantimes.co.jp"
+    },
+    {
+        "city": "New York ...",
+        "site": "https://www.nbcnewyork.com/news/local/new-yorkers-may-have-to-pay-package-delivery-surcharge-to-help-fund-mta/2767045/"
+    },
+    {
+        "city": "Montreal ...",
+        "site": "https://montrealgazette.com/news/local-news/quebec-announces-plans-for-covid-19-vaccination-program"
+    }
+]
