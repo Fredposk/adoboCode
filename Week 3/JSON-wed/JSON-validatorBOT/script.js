@@ -28,18 +28,17 @@ function isJSON(str) {
     try {
         JSON.parse(str);
         // console.log('true');
-        {
-            robot.addClass('animate__animated animate__shakeY');
-            setTimeout(() => {
-                robot.removeClass('animate__animated animate__shakeY');
-            }, 1000);
-            var alert2 = $(`<div class='alert alert-success' role='alert'>
+
+        robot.addClass('animate__animated animate__shakeY');
+        setTimeout(() => {
+            robot.removeClass('animate__animated animate__shakeY');
+        }, 1000);
+        var alert2 = $(`<div class='alert alert-success' role='alert'>
         <strong>AWESOME!</strong> This looks like valid JSON.
     </div>`).appendTo('body');
-            setTimeout(() => {
-                $(alert2).remove();
-            }, 1200);
-        }
+        setTimeout(() => {
+            $(alert2).remove();
+        }, 1200);
     } catch (e) {
         // console.log('false');
         robot.addClass('animate__animated animate__shakeX');
