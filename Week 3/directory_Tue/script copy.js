@@ -1,40 +1,53 @@
 (function (countries) {
     // console.log("sane!", $);
-    var inputField = $('input');
+    var searchField = $('input');
     var resultsContainer = $('.results');
 
     // 1. input eventlistener
-    inputField.on('input', function () {
-        var userInput = inputField.val();
-
-        $.ajax({
-            method: 'GET',
-            url: 'https://spicedworld.herokuapp.com/',
-            data: {
-                q: userInput,
-            },
-            success: function (response) {
-                var currentInput = inputField.val();
-                if (currentInput === userInput) {
-                    var htmlForCountries = '';
-                    for (var j = 0; j < response.length; j++) {
-                        htmlForCountries +=
-                            "<p class='country'>" + response[j] + '</p>';
-                    }
-                    // console.log('html we will be injecting:', htmlForCountries);
-                    resultsContainer.html(htmlForCountries);
-
-                    if (response.length == 0) {
-                        // console.log('no results');
-                        resultsContainer.html('No Results');
-                    }
-                } else {
-                    console.log('response no longer needed');
+    searchField.on('input', function () {
+        // console.log("input is happening right NOW!");
+        var inputVal = searchField.val().toLowerCase();
+        // console.log("input value typed:", inputVal);
+        var matchResults = [];
+        // loop to find results that match our input value
+        for (var i = 0; i < countries.length; i++) {
+            // console.log(countries[i].indexOf(inputVal));
+            if (countries[i].toLowerCase().indexOf(inputVal) === 0) {
+                // console.log("found a match:", countries[i]);
+                matchResults.push(countries[i]);
+                // limit your results to a maximum of four matching countries
+                if (matchResults.length === 4) {
+                    break;
                 }
-            },
-        });
+            }
+        }
+        // console.log("matchResults:", matchResults);
+        var htmlForCountries = '';
+        for (var j = 0; j < matchResults.length; j++) {
+            htmlForCountries +=
+                "<p class='country'>" + matchResults[j] + '</p>';
+        }
+        // console.log('html we will be injecting:', htmlForCountries);
+        resultsContainer.html(htmlForCountries);
+
+        // when the input field is empty, we can still see countries, need to fix that
+        if (inputVal === '') {
+            // console.log('im empty');
+            resultsContainer.empty();
+        }
+
+        // when the user types gibberish or simply ends up typing sth in the input
+        // field that does not mathc our countires in the list we should
+        // display "no results"
+        // console.log(matchResults);
+        if (matchResults.length == 0) {
+            // console.log('no results');
+            resultsContainer.html('No Results');
+        }
 
         // 2. mouseover event
+        // remember we don't have the p tags on screen initially, they get added
+        // later so we need to do some event delegation
 
         $('.country').mouseover(function (e) {
             $('.country').removeClass('toggle');
@@ -45,8 +58,8 @@
 
         $('.country').on('mousedown', function () {
             if ($('.country').hasClass('toggle')) {
-                $(inputField).val($(this).text());
-                inputField.focus();
+                $(searchField).val($(this).text());
+                searchField.focus();
                 resultsContainer.empty();
                 // console.log($(this));
             }
@@ -85,8 +98,8 @@
 
             if (e.keyCode === 13) {
                 if ($('.country').hasClass('toggle')) {
-                    $(inputField).val($(this).text());
-                    inputField.focus();
+                    $(searchField).val($(this).text());
+                    searchField.focus();
                     resultsContainer.empty();
                     // console.log($(this));
                 }
@@ -95,10 +108,10 @@
 
         // 5. focus event
         $(document).ready(function () {
-            inputField.focus();
+            searchField.focus();
         });
         // 6. blur event
-        inputField.blur(function () {
+        searchField.blur(function () {
             resultsContainer.empty();
         });
     });
