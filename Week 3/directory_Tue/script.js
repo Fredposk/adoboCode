@@ -1,4 +1,7 @@
-(function (countries) {
+(function () {
+    $(document).ready(function () {
+        inputField.focus();
+    });
     // console.log("sane!", $);
     var inputField = $('input');
     var resultsContainer = $('.results');
@@ -28,6 +31,19 @@
                         // console.log('no results');
                         resultsContainer.html('No Results');
                     }
+                    $('.country').mouseover(function (e) {
+                        $('.country').removeClass('toggle');
+                        $(this).addClass('toggle');
+                    });
+
+                    $('.country').on('mousedown', function () {
+                        if ($('.country').hasClass('toggle')) {
+                            $(inputField).val($(this).text());
+                            inputField.focus();
+                            resultsContainer.empty();
+                            // console.log($(this));
+                        }
+                    });
                 } else {
                     console.log('response no longer needed');
                 }
@@ -36,21 +52,7 @@
 
         // 2. mouseover event
 
-        $('.country').mouseover(function (e) {
-            $('.country').removeClass('toggle');
-            $(this).addClass('toggle');
-        });
-
         // 3. mousedown event
-
-        $('.country').on('mousedown', function () {
-            if ($('.country').hasClass('toggle')) {
-                $(inputField).val($(this).text());
-                inputField.focus();
-                resultsContainer.empty();
-                // console.log($(this));
-            }
-        });
 
         // 4. keydown
         // figure out the conditionals to recognise the keydown events your care about
@@ -94,9 +96,7 @@
         });
 
         // 5. focus event
-        $(document).ready(function () {
-            inputField.focus();
-        });
+
         // 6. blur event
         inputField.blur(function () {
             resultsContainer.empty();
