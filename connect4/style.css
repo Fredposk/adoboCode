@@ -65,6 +65,7 @@ h1 {
 }
 
 .chip3 {
+    border: black 1.5px solid;
 }
 
 .turns {
@@ -77,6 +78,12 @@ h3 {
     border: rgba(255, 255, 125, 0.418) 3px solid;
     background-color: aquamarine;
     box-shadow: 3.5px 3.5px 6px 0px #725d89;
+}
+
+.hover {
+    background-color: rgba(109, 116, 121, 0.24);
+    box-shadow: 4px 12px 5px 0px #394b6b;
+    cursor: pointer;
 }
 
 .fa-github-square {

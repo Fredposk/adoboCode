@@ -18,6 +18,17 @@
         }, 1000);
     });
 
+    $('.column').on('mouseenter', function (e) {
+        // console.log(e.currentTarget);
+        var hover = $(e.currentTarget);
+        hover.addClass('hover');
+    });
+
+    $('.column').on('mouseleave', function (e) {
+        var hover = $(e.currentTarget);
+        hover.removeClass('hover');
+    });
+
     var computer = $('.computer');
     computer.on('click', function () {
         // console.log('clicked');
@@ -87,7 +98,7 @@
             var num = Math.floor(Math.random() * 6);
             // console.log(num);
             var slotsInCol = $('.column').eq(num).children().children();
-            console.log(slotsInCol);
+            // console.log(slotsInCol);
             for (var j = slotsInCol.length - 1; j >= 0; j--) {
                 // console.log("slotsinCol.eq(i): ", slotsInCol.eq(i));
                 if (
@@ -101,11 +112,14 @@
                     break;
                 }
             }
+
+            // checkBoard();
+            // checkForVictory(slotsInCol);
         }
         if ($('.user2').hasClass('fa-robot')) {
             $('.chip3').removeClass('player11');
             $('.chip3').addClass('player22');
-            setTimeout(get, 2000);
+            setTimeout(get, 1000);
             currentPlayer = 'player1';
         }
 
@@ -136,8 +150,11 @@
             $('.board').addClass('animate__animated animate__flash');
         }
         switchPlayer();
-        checkBoard();
-        checkForVictory(slotsInRow);
+        win();
+        function win() {
+            checkBoard();
+            checkForVictory(slotsInRow);
+        }
         function checkBoard() {
             var allWins = [
                 [0, 7, 14, 21],
