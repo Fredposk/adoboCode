@@ -86,6 +86,14 @@ h3 {
     cursor: pointer;
 }
 
+.fa-facebook-square {
+    cursor: pointer;
+}
+
+.fa-instagram {
+    cursor: pointer;
+}
+
 .fa-github-square {
     font-size: 2rem;
     color: black;
@@ -154,4 +162,9 @@ footer {
     position: absolute;
     top: 95%;
     left: 1%;
+}
+
+p {
+    justify-self: center;
+    align-self: flex-end;
 }

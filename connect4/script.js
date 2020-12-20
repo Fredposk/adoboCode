@@ -54,6 +54,14 @@
         // location.href = 'https://en.wikipedia.org/wiki/Connect_Four';
         window.open('https://en.wikipedia.org/wiki/Connect_Four');
     });
+    $('.fa-facebook-square').on('click', function () {
+        // location.href = 'https://en.wikipedia.org/wiki/Connect_Four';
+        window.open('https://www.facebook.com');
+    });
+    $('.fa-instagram').on('click', function () {
+        // location.href = 'https://en.wikipedia.org/wiki/Connect_Four';
+        window.open('https://www.instagram.com');
+    });
 
     var startbtn = $('#startBtn');
 
