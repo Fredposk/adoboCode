@@ -1,0 +1,108 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+}
+
+body {
+    background: url(./pexels-vova-krasilnikov-2796145.jpg) repeat-y center
+        center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+    top: 0px;
+    /* overflow: hidden; */
+}
+
+.fa-github-square {
+    padding: 1%;
+    font-size: 1.7rem;
+    color: #f4f4f4;
+    cursor: pointer;
+}
+
+.alert {
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+}
+
+.search {
+    /* border: hotpink 3px solid; */
+    width: fit-content;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+#submitBtn {
+    margin-left: 2px;
+}
+
+h1 {
+    color: #2baf19;
+}
+h5 {
+    color: #f4f4f4;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+#returnImg {
+    max-width: 125px;
+    max-height: 125px;
+    min-width: 75px;
+    min-height: 75px;
+}
+
+.resultsContainer {
+    position: absolute;
+    top: 30%;
+    padding: 5%;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    overflow: auto;
+}
+
+a,
+a:hover,
+a:focus,
+a:active {
+    text-decoration: none;
+    color: inherit;
+}
+
+.media {
+    background-color: rgba(85, 84, 84, 0.267);
+    padding-top: 1%;
+    padding: 0.5%;
+    position: relative;
+    border: whitesmoke 1px solid;
+    color: #f4f4f4;
+}
+.footer {
+    width: 100%;
+    background-color: rgba(255, 255, 0, 0.185);
+    color: #f4f4f4;
+    position: fixed;
+    top: 95%;
+}
+
+.love {
+    padding-left: 1.5%;
+    float: left;
+    cursor: pointer;
+}
+
+.share {
+    padding-right: 1.5%;
+    float: right;
+    cursor: pointer;
+}
