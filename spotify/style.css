@@ -4,8 +4,8 @@
 }
 
 body {
-    background: url(./pexels-vova-krasilnikov-2796145.jpg) repeat-y center
-        center fixed;
+    background: url(https://images.pexels.com/photos/2796145/pexels-photo-2796145.jpeg?cs=srgb&dl=pexels-vova-krasilnikov-2796145.jpg&fm=jpg)
+        repeat-y center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -58,17 +58,33 @@ h5 {
     min-width: 75px;
     min-height: 75px;
 }
-
-.resultsContainer {
+.full {
+    display: flex;
+    direction: column;
+    align-items: center;
+    justify-content: flex-start;
     position: absolute;
     top: 30%;
     padding: 5%;
-    width: fit-content;
+
     margin-left: auto;
     margin-right: auto;
     left: 0;
     right: 0;
     overflow: auto;
+}
+#headResults {
+    padding: 1%;
+    font-size: 1rem;
+    color: whitesmoke;
+    text-transform: uppercase;
+    background-color: rgba(82, 82, 82, 0.336);
+    text-align: center;
+    visibility: hidden;
+}
+
+.resultsContainer {
+    width: fit-content;
 }
 
 a,
@@ -80,16 +96,26 @@ a:active {
 }
 
 .media {
-    background-color: rgba(85, 84, 84, 0.267);
+    background-color: rgba(85, 84, 84, 0.288);
     padding-top: 1%;
     padding: 0.5%;
     position: relative;
-    border: whitesmoke 1px solid;
+    border: rgba(245, 245, 245, 0.712) 1px solid;
     color: #f4f4f4;
 }
+
+#moreBtn {
+    width: 20%;
+    visibility: hidden;
+}
+#prevBtn {
+    width: 20%;
+    visibility: hidden;
+}
+
 .footer {
     width: 100%;
-    background-color: rgba(255, 255, 0, 0.185);
+    background-color: rgba(180, 155, 57, 0.404);
     color: #f4f4f4;
     position: fixed;
     top: 95%;
