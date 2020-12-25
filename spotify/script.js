@@ -71,7 +71,12 @@ function submit() {
         xhr.open('GET', url, true);
         xhr.onload = function () {
             if (this.status == 200) {
-                var response = JSON.parse(this.response);
+                try {
+                    var response = JSON.parse(this.response);
+                } catch (error) {
+                    console.log('not JSON');
+                }
+
                 if (artistOrAlbum === 'artist') {
                     if (response.artists.items.length === 0) {
                         noHead();
@@ -88,7 +93,7 @@ function submit() {
                         createNewAlbum(response);
                     }
                 }
-            } else if (this.status == 404) {
+            } else if (this.status != 200 && this.status != 400) {
                 console.log('OUR servers are down');
             }
         };
@@ -123,6 +128,7 @@ function submit() {
             prevBtn.style.visibility = 'visible';
             prevBtn.addEventListener('click', () => {
                 handle(prevUrl);
+                window.scrollTo(0, 0);
                 cleanUp();
             });
         } else if (prevUrl == null) {
@@ -186,6 +192,7 @@ function submit() {
             prevBtn.style.visibility = 'visible';
             prevBtn.addEventListener('click', () => {
                 handle(prevUrl);
+                window.scrollTo(0, 0);
                 cleanUp();
             });
         } else if (prevUrl == null) {
