@@ -30,6 +30,7 @@ function submit() {
         if (resultsContainer.hasChildNodes()) {
             media.parentNode.innerHTML = '';
             moreBtn.style.visibility = 'hidden';
+            prevBtn.style.visibility = 'hidden';
         }
     }
     cleanUp();
