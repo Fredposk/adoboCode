@@ -1,4 +1,16 @@
 window.addEventListener('DOMContentLoaded', function () {
+    //////// DO NOT TOUCH ////////
+    Handlebars.templates = Handlebars.templates || {};
+
+    var templates = document.querySelectorAll(
+        'script[type="text/x-handlebars-template"]'
+    );
+
+    Array.prototype.slice.call(templates).forEach(function (script) {
+        Handlebars.templates[script.id] = Handlebars.compile(script.innerHTML);
+    });
+    //////// DO NOT TOUCH ////////
+
     document
         .querySelector('.fa-facebook-square')
         .addEventListener('click', () => {
@@ -14,8 +26,6 @@ window.addEventListener('DOMContentLoaded', function () {
         });
 
     var resultsContainer = document.querySelector('.resultsContainer');
-    var moreBtn = document.getElementById('moreBtn');
-    var prevBtn = document.getElementById('prevBtn');
     var headResults = document.getElementById('headResults');
 
     document.addEventListener('keydown', function (e) {
@@ -34,8 +44,6 @@ window.addEventListener('DOMContentLoaded', function () {
             var media = document.querySelector('.media');
             if (resultsContainer.hasChildNodes()) {
                 media.parentNode.innerHTML = '';
-                moreBtn.style.visibility = 'hidden';
-                prevBtn.style.visibility = 'hidden';
             }
         }
         cleanUp();
@@ -104,7 +112,7 @@ window.addEventListener('DOMContentLoaded', function () {
                     } else {
                         head();
                         // console.log(response);
-                        createNewAlbum(response);
+                        // createNewAlbum(response);
                     }
                 }
             })
@@ -113,57 +121,19 @@ window.addEventListener('DOMContentLoaded', function () {
             });
 
         function createNew(response) {
-            cleanUp();
             var nextUrl =
                 response.artists.next &&
                 response.artists.next.replace(
                     'api.spotify.com/v1/search',
                     'spicedify.herokuapp.com/spotify'
                 );
-            if (nextUrl != null) {
-                // console.log(nextUrl);
-                moreBtn.style.visibility = 'visible';
-                moreBtn.addEventListener('click', () => {
-                    handle(nextUrl)
-                        .then((response) => {
-                            // console.log(response);
-                            createNew(response);
-                        })
-                        .catch((err) => {
-                            console.log(err);
-                        });
-                    window.scrollTo(0, 0);
-                });
-            } else if (nextUrl == null) {
-                moreBtn.style.visibility = 'hidden';
+
+            if (nextUrl !== null) {
             }
-            var prevUrl =
-                response.artists.previous &&
-                response.artists.previous.replace(
-                    'api.spotify.com/v1/search',
-                    'spicedify.herokuapp.com/spotify'
-                );
-            if (prevUrl != null) {
-                // console.log(nextUrl);
-                prevBtn.style.visibility = 'visible';
-                prevBtn.addEventListener('click', () => {
-                    handle(prevUrl)
-                        .then((response) => {
-                            createNew(response);
-                        })
-                        .catch((error) => {
-                            console.log(error);
-                        });
-                    window.scrollTo(0, 0);
-                    cleanUp();
-                });
-            } else if (prevUrl == null) {
-                prevBtn.style.visibility = 'hidden';
-            }
+
             for (var i = response.artists.items.length - 1; i >= 0; i--) {
                 var artistName = response.artists.items[i].name;
                 var genres = response.artists.items[i].genres;
-                var followers = response.artists.items[i].followers.total;
                 var picture =
                     'https://images.pexels.com/photos/3391933/pexels-photo-3391933.jpeg?cs=srgb&dl=pexels-miguel-á-padriñán-3391933.jpg&fm=jpg';
                 if (response.artists.items[i].images.length > 0) {
@@ -172,97 +142,19 @@ window.addEventListener('DOMContentLoaded', function () {
                 var link = response.artists.items[i].external_urls.spotify;
                 var result = `
         <a href="${link}"
-        <div class="media">
-                <img
-                    src="${picture}"
-                    class="align-self-center mr-3"
-                    id="returnImg"
-                />
-                <div class="media-body">
-                    <h5 class="mt-0">${artistName}</h5>
-                    <p>Genre: ${genres}</p>
-                    <p class="mb-0">Followers: ${followers}
-                    </p>
-                </div>
-            </div></a>`;
-
-                resultsContainer.insertAdjacentHTML('afterbegin', result);
-            }
-        }
-
-        function createNewAlbum(response) {
-            cleanUp();
-            var nextUrl =
-                response.albums.next &&
-                response.albums.next.replace(
-                    'api.spotify.com/v1/search',
-                    'spicedify.herokuapp.com/spotify'
-                );
-            if (nextUrl != null) {
-                // console.log(nextUrl);
-                moreBtn.style.visibility = 'visible';
-                moreBtn.addEventListener('click', () => {
-                    handle(nextUrl)
-                        .then((response) => {
-                            createNewAlbum(response);
-                        })
-                        .catch((error) => {
-                            console.log(error);
-                        });
-                    window.scrollTo(0, 0);
-                });
-            } else if (nextUrl == null) {
-                moreBtn.style.visibility = 'hidden';
-            }
-            var prevUrl =
-                response.albums.previous &&
-                response.albums.previous.replace(
-                    'api.spotify.com/v1/search',
-                    'spicedify.herokuapp.com/spotify'
-                );
-            if (prevUrl != null) {
-                // console.log(nextUrl);
-                prevBtn.style.visibility = 'visible';
-                prevBtn.addEventListener('click', () => {
-                    handle(prevUrl)
-                        .then((response) => {
-                            createNewAlbum(response);
-                        })
-                        .catch((error) => {
-                            console.log(error);
-                        });
-                    window.scrollTo(0, 0);
-                    cleanUp();
-                });
-            } else if (prevUrl == null) {
-                prevBtn.style.visibility = 'hidden';
-            }
-
-            for (var i = response.albums.items.length - 1; i >= 0; i--) {
-                var albumName = response.albums.items[i].name;
-                var link = response.albums.items[i].external_urls.spotify;
-                var picture =
-                    'https://images.pexels.com/photos/3391933/pexels-photo-3391933.jpeg?cs=srgb&dl=pexels-miguel-á-padriñán-3391933.jpg&fm=jpg';
-                if (response.albums.items[i].images.length > 0) {
-                    picture = response.albums.items[i].images[0].url;
-                }
-                var release = response.albums.items[0].release_date;
-                var artist = response.albums.items[0].artists[0].name;
-                var result = `
-        <a href="${link}"
-        <div class="media">
-                <img
-                    src="${picture}"
-                    class="align-self-center mr-3"
-                    id="returnImg"
-                />
-                <div class="media-body">
-                    <h5 class="mt-0">${albumName}</h5>
-                    <p>Release: ${release}</p>
-                    <p class="mb-0">Artist: ${artist}
-                    </p>
-                </div>
-            </div></a>`;
+        <div class="card mb-3 media" style="max-width: 540px;">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <img src="${picture}" class="card-img" id="returnImg">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">${artistName}</h5>
+        <p class="card-text"><small class="text-muted">Genre: ${genres}</small></p>
+      </div>
+    </div>
+  </div>
+</div></a>`;
 
                 resultsContainer.insertAdjacentHTML('afterbegin', result);
             }

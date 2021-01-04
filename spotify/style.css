@@ -104,12 +104,12 @@ img:hover {
 }
 
 .media {
-    background-color: rgba(85, 84, 84, 0.288);
+    /* background-color: rgba(85, 84, 84, 0.288);
     padding-top: 1%;
     padding: 0.5%;
     position: relative;
     border: rgba(245, 245, 245, 0.712) 1px solid;
-    color: #f4f4f4;
+    color: #f4f4f4; */
 }
 
 .btnWrap {

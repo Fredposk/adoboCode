@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <meta name="Description" content="Enter your description here" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.5.3/spacelab/bootstrap.min.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+        />
+        <link rel="stylesheet" href="style.css" />
+        <title>Spotify Search</title>
+    </head>
+    <body>
+        <i class="fab fa-github-square"></i>
+        <div class="search">
+            <h1><em>Spotify Search</em> <i class="fab fa-spotify"></i></h1>
+
+            <form class="form-inline my-2 my-lg-0">
+                <input
+                    id="searchText"
+                    class="form-control mr-sm-2"
+                    type="text"
+                    placeholder="Search ..."
+                />
+                <select class="form-control" name="" id="dropDown">
+                    <option>Artist</option>
+                    <option>Album</option>
+                </select>
+                <button
+                    type="button"
+                    id="submitBtn"
+                    class="btn btn-secondary btn"
+                >
+                    Search
+                </button>
+            </form>
+            <br />
+            <p id="headResults">
+                <!-- <i class="fa fa-headphones" aria-hidden="true"></i> SHOWING
+                RESULTS FOR : -->
+            </p>
+            <br /><br />
+        </div>
+        <div class="full">
+            <div class="resultsContainer"></div>
+            <div class="btnWrap"></div>
+        </div>
+
+        <footer class="footer">
+            <p class="love">
+                Made with <i class="fa fa-heart" aria-hidden="true"></i> in
+                Berlin
+            </p>
+            <p class="share">
+                Share on <i class="fab fa-facebook-square"></i>
+                <i class="fab fa-instagram"></i>
+            </p>
+        </footer>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+        <script src="./script3.js"></script>
+    </body>
+</html>
