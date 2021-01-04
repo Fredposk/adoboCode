@@ -74,16 +74,19 @@ window.addEventListener('DOMContentLoaded', function () {
         var searchUrl = `https://spicedify.herokuapp.com/spotify?query=${userInput}&type=${artistOrAlbum}`;
 
         var handle = (url) => {
-            fetch(url)
-                .then((response) => {
-                    response.json();
-                })
-                .then((data) => {
-                    console.log(data);
-                })
-                .catch((error) => {
-                    console.log(error);
+            return new Promise((resolve, reject) => {
+                var xhr = new XMLHttpRequest();
+                xhr.addEventListener('readystatechange', () => {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        var response = JSON.parse(xhr.responseText);
+                        resolve(response);
+                    } else if (xhr.readyState == 4) {
+                        reject('error happened while processing');
+                    }
                 });
+                xhr.open('GET', url);
+                xhr.send();
+            });
         };
 
         handle(searchUrl)
