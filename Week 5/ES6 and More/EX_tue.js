@@ -71,3 +71,20 @@ const gen = getMoreEmojis();
 console.log('gen: ', gen);
 console.log('gen.next(): ', gen.next());
 console.log(emojis);
+
+/*Below is change to increment reverse
+
+const emojis = ['🎲', '⚔', '🏹', '🧩'];
+function* getMoreEmojis() {
+    for (let i = emojis.length - 1; i >= 0; i--) {
+        yield emojis[i];
+    }
+}
+const gen = getMoreEmojis();
+console.log('gen: ', gen);
+console.log('gen.next(): ', gen.next());
+console.log('gen.next(): ', gen.next());
+console.log('gen.next(): ', gen.next());
+console.log('gen.next(): ', gen.next());
+console.log(emojis);
+*/
