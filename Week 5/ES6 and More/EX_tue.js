@@ -64,10 +64,10 @@ for (const num of numbers()) {
 // EX6
 
 const emojis = ['🎲', '⚔', '🏹', '🧩'];
-function* getMoreEmojis() {
-    return emojis.reduce((a, b) => [b, ...a], []);
+function* getMoreEmojis(arr) {
+    yield arr.reduce((a, b) => [b, ...a], []);
 }
-const gen = getMoreEmojis();
+const gen = getMoreEmojis(emojis);
 console.log('gen: ', gen);
 console.log('gen.next(): ', gen.next());
 console.log(emojis);
@@ -75,12 +75,12 @@ console.log(emojis);
 /*Below is change to increment reverse
 
 const emojis = ['🎲', '⚔', '🏹', '🧩'];
-function* getMoreEmojis() {
-    for (let i = emojis.length - 1; i >= 0; i--) {
+function* getMoreEmojis(arr) {
+    for (let i = arr.length - 1; i >= 0; i--) {
         yield emojis[i];
     }
 }
-const gen = getMoreEmojis();
+const gen = getMoreEmojis(emojis);
 console.log('gen: ', gen);
 console.log('gen.next(): ', gen.next());
 console.log('gen.next(): ', gen.next());
