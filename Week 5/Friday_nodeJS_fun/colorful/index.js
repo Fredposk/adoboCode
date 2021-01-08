@@ -3,8 +3,6 @@ const http = require('http');
 const qs = require('querystring');
 const url = require('url');
 
-// console.log(chalk.blue("Hello Adobo"));
-
 const server = http.createServer((req, res) => {
     req.on('error', (error) => console.log('error: ', error));
     res.on('error', (error) => console.log('error: ', error));
@@ -38,7 +36,6 @@ const server = http.createServer((req, res) => {
         req.on('data', (chunk) => {
             body += chunk;
         }).on('end', () => {
-            console.log('body inside the end listener: ', body);
             let str = qs.parse(body);
             console.log('str: ', str);
             let color = Object.entries(str);
@@ -48,8 +45,8 @@ const server = http.createServer((req, res) => {
             {
                 res.end(`<!doctype html>
 <html>
-<title>it is better to have loved and lost than never to have loved at all</title>
-<a href="/" style="color:${chalk[thing]}">${color[0][1]}</a>
+<title>${color[0][1]}</title>
+<a href="/" style="color:${thing}">${color[0][1]}</a>
 </html>`);
             }
         });
