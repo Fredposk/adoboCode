@@ -35,9 +35,17 @@ const server = http.createServer((req, res) => {
                     </html>`);
         }
     } else if (req.method === 'POST') {
-        console.log(req.url);
-        res.writeHead(302, { Location: '/' });
-        res.end();
+        let repo = '';
+        req.on('data', (chunk) => {
+            console.log(chunk);
+            repo += chunk;
+        });
+        req.on('end', () => {
+            console.log(repo);
+            console.log(req.url);
+            res.writeHead(302, { Location: '/' });
+            res.end();
+        });
     } else {
         res.writeHead(405);
         console.log('Not Allowed');
