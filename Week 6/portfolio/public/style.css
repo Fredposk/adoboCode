@@ -1,0 +1,170 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    background-color: aqua;
+    display: flex;
+    align-content: center;
+}
+
+.container {
+    /* border: indigo 3px solid; */
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+h1 {
+    left: 25%;
+    align-self: center;
+}
+
+.board {
+    /* border: blue 3px solid; */
+    display: flex;
+    justify-content: center;
+}
+.gameStuff {
+    /* border: bisque 3px solid; */
+    height: auto;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    padding: 10px;
+}
+.gameStuff1 {
+    /* border: bisque 3px solid; */
+    height: auto;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+    justify-content: center;
+    padding: 10px;
+}
+
+.chips {
+    justify-self: center;
+    align-self: center;
+    border-radius: 50%;
+    border: black 1px solid;
+    height: 2rem;
+    width: 2rem;
+}
+
+.chip1 {
+    background-color: red;
+}
+.chip2 {
+    background-color: indigo;
+}
+
+.chip3 {
+    border: black 1.5px solid;
+}
+
+.turns {
+}
+
+h3 {
+}
+.column {
+    /* align-self: center; */
+    border: rgba(255, 255, 125, 0.418) 3px solid;
+    background-color: aquamarine;
+    box-shadow: 3.5px 3.5px 6px 0px #725d89;
+}
+
+.hover {
+    background-color: rgba(109, 116, 121, 0.24);
+    box-shadow: 4px 12px 5px 0px #394b6b;
+    cursor: pointer;
+}
+
+.fa-facebook-square {
+    cursor: pointer;
+}
+
+.fa-instagram {
+    cursor: pointer;
+}
+
+.fa-github-square {
+    font-size: 2rem;
+    color: black;
+    justify-self: center;
+    align-self: center;
+    cursor: pointer;
+}
+.fa-book {
+    font-size: 2rem;
+    color: black;
+    justify-self: center;
+    align-self: center;
+    cursor: pointer;
+}
+.fa-robot {
+    font-size: 2rem;
+    color: black;
+    justify-self: center;
+    align-self: center;
+    cursor: pointer;
+}
+.fa-user {
+    font-size: 2rem;
+    color: black;
+    justify-self: center;
+    align-self: center;
+}
+
+.computer {
+    cursor: pointer;
+}
+
+.slot {
+    /* border: pink 3px solid; */
+    height: 4rem;
+    width: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.hole {
+    border: black 3px solid;
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    background-color: rgba(128, 128, 128, 0.61);
+    box-shadow: 3.5px 3.5px 6px 0px #725d89;
+}
+
+.player1 {
+    background-color: red;
+}
+
+.player2 {
+    background-color: indigo;
+}
+.player11 {
+    background-color: red;
+}
+
+.player22 {
+    background-color: indigo;
+}
+
+footer {
+    position: absolute;
+    top: 95%;
+    left: 1%;
+}
+
+p {
+    justify-self: center;
+    align-self: flex-end;
+}
