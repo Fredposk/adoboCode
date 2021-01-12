@@ -1,8 +1,9 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
+const getProjectsPage = require('./projects');
 
-const contentExt = {
+const contentTypes = {
     '.html': 'text/html',
     '.css': 'text/css',
     '.js': 'text/javascript',
@@ -13,77 +14,54 @@ const contentExt = {
     '.svg': 'image/svg+xml',
 };
 
-http.createServer((req, res) => {
-    req.on('error', (err) => console.log('error in request', err));
-    res.on('error', (err) => console.log('error in response', err));
+http.createServer(function (req, res) {
+    req.on('error', (err) => console.log(err));
+    res.on('error', (err) => console.log(err));
 
-    if (req.method !== 'GET') {
-        console.log('go away');
+    if (req.method != 'GET') {
         res.statusCode = 405;
         return res.end();
     }
 
-    const filePath = path.join(__dirname, '/projects', req.url);
+    if (req.url == '/') {
+        res.setHeader('Content-Type', 'text/html');
+        return res.end(getProjectsPage());
+    }
 
-    if (!filePath.startsWith(__dirname + '/projects')) {
-        console.log('INTRUDER INCOMING');
+    const reqItem = path.normalize(`${__dirname}/projects${req.url}`);
+
+    if (!reqItem.startsWith(`${__dirname}/projects/`)) {
         res.statusCode = 403;
         return res.end();
     }
 
-    fs.stat(filePath, (err, stats) => {
+    fs.stat(reqItem, function (err, stats) {
         if (err) {
-            console.log('error stat');
             res.statusCode = 404;
             return res.end();
         }
-        if (stats.isFile()) {
-            const readStreamHtml = fs.createReadStream(filePath);
-            let extname = path.extname(filePath);
-            res.setHeader('Content-Type', contentExt[extname]);
-            readStreamHtml.pipe(res);
-            readStreamHtml.on('error', (err) => {
-                console.log('err here:', err);
-                res.statusCode = 500;
-                return res.end();
-            });
-        } else if (req.url == '/') {
-            res.setHeader('Content-Type', 'text/html');
-            res.end();
-        } else {
+        let readStream;
+        if (stats.isDirectory()) {
             if (req.url.endsWith('/')) {
-                const readStreamHtml = fs.createReadStream(
-                    filePath + 'index.html'
-                );
                 res.setHeader('Content-Type', 'text/html');
-                readStreamHtml.pipe(res);
-                readStreamHtml.on('error', (err) => {
-                    res.statusCode = 500;
-                    return res.end();
-                });
+                readStream = fs.createReadStream(reqItem + 'index.html');
             } else {
-                res.setHeader('Location', req.url + '/');
                 res.statusCode = 302;
-                res.end();
+                res.setHeader('Location', req.url + '/');
+                return res.end();
             }
+        } else {
+            const contentType = contentTypes[path.extname(reqItem)];
+            contentType && res.setHeader('Content-Type', contentType);
+            readStream = fs.createReadStream(reqItem);
         }
-    });
-}).listen(8080, () => console.log('BIG BROTHER IS LISTENING'));
 
-// switch (extname) {
-//     case '.js':
-//         contentType = 'text/javascript';
-//         break;
-//     case '.css':
-//         contentType = 'text/css';
-//         break;
-//     case '.json':
-//         contentType = 'application/json';
-//         break;
-//     case '.png':
-//         contentType = 'image/png';
-//         break;
-//     case '.jpg':
-//         contentType = 'image/jpg';
-//         break;
-// }
+        readStream.on('error', function (err) {
+            console.log(err);
+            res.statusCode = err.code == 'ENOENT' ? 404 : 500;
+            res.end();
+        });
+
+        readStream.pipe(res);
+    });
+}).listen(8080, () => console.log(`I'm listening.`));
