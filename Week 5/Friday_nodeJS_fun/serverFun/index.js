@@ -5,6 +5,15 @@ const server = http.createServer((req, res) => {
     req.on('error', (err) => console.log(err));
     res.on('error', (err) => console.log(err));
 
+    const banana = () => {
+        const thing = Math.floor(Math.random() * 5);
+        console.log(thing);
+        if (thing > 2) {
+            throw Error;
+        }
+    };
+    banana();
+
     // if (req.url === '/requests.txt/') {
     //     res.writeHead(200, { contentType: 'text/plain' });
     //     console.log('');
