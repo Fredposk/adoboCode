@@ -26,13 +26,11 @@ app.get('/cookie', (req, res) => {
     `);
 });
 
-app.post('/cookie', (req, res) => {
+app.post('/cookie', (req, res, next) => {
     const { subscribe } = req.body;
     if (subscribe) {
         res.cookie('session_ID2', true);
         res.send(`<h1>WELCOME TO ASTROWORLD</h1>`);
-        console.log(req.path);
-        console.log(document.referrer);
     } else {
         res.send(`<h1>Must accept cookies to continue</h1>`);
     }
@@ -44,12 +42,19 @@ const validateCookie = (req, res, next) => {
     if ('session_ID2' in cookies) {
         next();
     } else {
-        console.log(res.cookie.path);
+        res.locals.myvar = req.originalUrl;
+        console.log(res.locals.myvar);
         res.redirect('/cookie');
     }
 };
 
 app.use(validateCookie);
+
+// const redirect = (req, res, next) => {
+//     console.log(res.locals.myvar);
+//     next();
+// };
+// app.use(redirect);
 
 const auth = function (req, res, next) {
     const creds = basicAuth(req);
