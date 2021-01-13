@@ -1,6 +1,5 @@
 const express = require('express');
 const path = require('path');
-const url = require('url');
 const app = express();
 const morgan = require('morgan');
 app.use(
@@ -14,7 +13,7 @@ const PORT = process.env.PORT || 8081;
 // Middleware
 app.use(morgan('tiny'));
 app.use(require('cookie-parser')());
-app.use(cookie);
+// app.use(cookie);
 
 app.use(express.static(path.join(__dirname, 'projects')));
 app.use(express.static('./public'));
