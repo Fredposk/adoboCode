@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.5.2/pulse/bootstrap.min.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+        />
+        <link rel="stylesheet" href="style.css" />
+        <title>EX1</title>
+    </head>
+
+    <body>
+        <div class="noteDiv animate__animated animate__bounceInDown">
+            <h1 class="heading">
+                NOTESAVER 2000
+                <i class="fa fa-address-book" aria-hidden="true"></i>
+            </h1>
+            <div class="form-group">
+                <label for="Note Saver"></label>
+                <textarea
+                    class="form-control"
+                    name=""
+                    id="mainForm"
+                    rows="3"
+                    placeholder="Save your note here"
+                ></textarea>
+            </div>
+            <br />
+            <button
+                type="button"
+                id="btn1"
+                class="btn btn-primary btn-sm btn-block"
+            >
+                Save Note
+            </button>
+            <br />
+            <button
+                type="button"
+                id="btn2"
+                class="btn btn-primary btn-sm btn-block"
+            >
+                Retrieve Note
+            </button>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+        <script src="./script.js"></script>
+    </body>
+</html>

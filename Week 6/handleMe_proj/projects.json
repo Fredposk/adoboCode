@@ -1,0 +1,14 @@
+[
+    {
+        "title": "Connect 4",
+        "directory": "connect4"
+    },
+    {
+        "title": "Local Storage Manager",
+        "directory": "EX-LocalStorage"
+    },
+    {
+        "title": "JSON Validator Bot",
+        "directory": "JSON-validatorBOT"
+    }
+]

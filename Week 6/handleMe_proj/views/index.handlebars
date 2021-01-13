@@ -1,0 +1,21 @@
+<main class="flex justify-center">
+{{#each projects}}
+<div class="card">
+                            <img
+                                src="{{this.directory}}/screenshot.jpg"
+                                class="rounded-b-lg mt-4 w-full h-32 object-cover"
+                            />
+                            <div>
+                                <span class="font-bold italic"
+                                    >{{this.title}}</span>
+
+                                <span
+                                    class="font-bold italic block text-gray-300"
+                                    >LINK</span
+                                >
+                            </div>
+                            <div class="flex justify-center">
+                     <button class="bg-gray-700 py-2 px-4 rounded shadow-lg m-1 text-gray-400 hover:bg-gray-800 hover:text-gray-300" class> <a href="{{this.directory}}">MORE</a></button>
+                     <button class="bg-gray-700 py-2 px-4 rounded shadow-lg m-1 text-gray-400 hover:bg-gray-800 hover:text-gray-300" class><i class="fab fa-github"></i></button></div>
+
+                        </div>{{/each}}</main>
