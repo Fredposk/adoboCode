@@ -1,14 +1,17 @@
 [
     {
         "title": "Connect 4",
-        "directory": "connect4"
+        "directory": "connect4",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum cum fugit fuga facere quaerat nam consequatur amet repellat vitae a."
     },
     {
         "title": "Local Storage Manager",
-        "directory": "EX-LocalStorage"
+        "directory": "EX-LocalStorage",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum cum fugit fuga facere quaerat nam consequatur amet repellat vitae a."
     },
     {
         "title": "JSON Validator Bot",
-        "directory": "JSON-validatorBOT"
+        "directory": "JSON-validatorBOT",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum cum fugit fuga facere quaerat nam consequatur amet repellat vitae a."
     }
 ]

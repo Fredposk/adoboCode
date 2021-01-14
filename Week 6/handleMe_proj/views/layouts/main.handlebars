@@ -3,34 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/styles.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
-    {{!-- <link rel="stylesheet" href="../../dist/css/styles.css"> --}}
-    <title>Projects</title>
+
+    <title>{{title}}</title>
 </head>
-<body>
+
+<body class="bg-gray-200">
+
+<div class="flex flex-row justify-between rounded-b-sm shadow-lg bg-gradient-to-r from-gray-300 via-gray-400 to-gray-500">
+
+<div class="w-32 p-2 opacity-90"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Logo_CODE.svg/2000px-Logo_CODE.svg.png" alt=""></div>
+<div class="p-2 mr-4 text-3xl text-gray-100"><i class="cursor-pointer fab fa-github hover:opacity-75"></i></div>
 
 
-<div class="h-12 bg-green-600 flex justify-between">
-<div> <button class="bg-gray-600 rounded-md p-3 text-gray-300 tracking-wide hover:bg-gray-500 shadow-lg"> MY GITHUB</button> </div>
-<div> <button class="bg-gray-600 rounded-md p-3 text-gray-300 tracking-wide hover:bg-gray-500 shadow-lg">GITHUB <i class="fab fa-github"></i></button> </div>
 </div>
-<div class="flex justify-center">
-  <h1 class="text-gray-800 text-8xl font-medium" > HELLO</h1>
+
+<div class="flex flex-col justify-between h-screen">
+  <main class="flex-auto">{{{body}}}</main>
 </div>
 
-
-
-
-
-{{{body}}}
-
-<div class="mt-12 flex justify-center">
-                    <button
-                        class="bg-blue-400 m-6 px-6 py-3 rounded-lg shadow-md hover:bg-blue-500 hover:text-blue-600 text-center cursor:pointer"
-                    >
-                        Load more
-                    </button>
-                </div>
 </body>
 </html>
+
