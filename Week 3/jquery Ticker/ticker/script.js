@@ -6,34 +6,34 @@ $(document).ready(function () {
     var linkWidth = links.eq(0).outerWidth();
     var animId;
 
-    // $.ajax({
-    //     url: './links.json',
-    //     method: 'GET',
-    //     data: {
-    //         limit: 20,
-    //     },
-    //     success: function (data) {
-    //         // console.log(data[0].site);
-    //         var linkY = '';
-    //         for (var j = 0; j < data.length; j++) {
-    //             linkY += `<a href=${data[j].site}> ${data[j].city}</a>`;
-    //         }
-    //         // console.log('html we will be injecting:', linkY);
-    //         headlines.html(linkY);
-    //     },
-    // });
+    $.ajax({
+        url: './links.json',
+        method: 'GET',
+        data: {
+            limit: 20,
+        },
+        success: function (data) {
+            // console.log(data[0].site);
+            var linkY = '';
+            for (var j = 0; j < data.length; j++) {
+                linkY += `<a href=${data[j].site}> ${data[j].city}</a>`;
+            }
+            // console.log('html we will be injecting:', linkY);
+            headlines.html(linkY);
+        },
+    });
 
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', './links.json');
-    xhr.onload = function () {
-        if (xhr.status === 200) {
-            var parse = JSON.parse(xhr.response);
-            console.log(parse);
-        } else {
-            console.log('didnt work');
-        }
-    };
-    xhr.send();
+    // var xhr = new XMLHttpRequest();
+    // xhr.open('GET', './links.json');
+    // xhr.onload = function () {
+    //     if (xhr.status === 200) {
+    //         var parse = JSON.parse(xhr.response);
+    //         console.log(parse);
+    //     } else {
+    //         console.log('didnt work');
+    //     }
+    // };
+    // xhr.send();
 
     headlines.on('mouseenter', function (e) {
         cancelAnimationFrame(animId);

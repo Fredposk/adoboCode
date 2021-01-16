@@ -12,6 +12,10 @@ app.use(morgan('tiny'));
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
 
+// Source
+app.use(express.static(path.join(__dirname, 'projects')));
+app.use(express.static(path.join(__dirname, 'dist', 'css')));
+
 // Filter projects
 const projFilter = (req) => (projects) =>
     projects.directory === req.params.project;
@@ -25,6 +29,7 @@ app.get('/projects/:project', (req, res) => {
         res.render('description', {
             title: `${title}`,
             projectArray,
+            projects,
             link: directory,
         });
     } else {
@@ -41,9 +46,6 @@ app.get('/', (req, res) => {
         projects,
     });
 });
-
-app.use(express.static(path.join(__dirname, 'projects')));
-app.use(express.static(path.join(__dirname, 'dist', 'css')));
 
 // PORT
 const PORT = process.env.PORT || 1337;
