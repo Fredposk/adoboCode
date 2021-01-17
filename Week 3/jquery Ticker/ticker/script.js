@@ -35,7 +35,7 @@ $(document).ready(function () {
     // };
     // xhr.send();
 
-    headlines.on('mouseenter', function (e) {
+    headlines.on('mouseenter', function () {
         cancelAnimationFrame(animId);
     });
 
