@@ -13,7 +13,7 @@
             for (var i = 0; i < data.length; i++) {
                 // console.log(data[i]);
                 headlines.append(
-                    `<a href="${data[i].url}">${data[i].text}</a>`
+                    `<a href="${data[i].url}">${data[i].text} (${data[i].user})  &nbsp&nbsp</a>`
                 );
             }
             links = $('a');
