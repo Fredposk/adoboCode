@@ -5,22 +5,38 @@ const path = require('path');
 const dirPath = path.join(__dirname, '/files');
 
 const logSizes = (dirP) => {
-    fs.readdir(dirP, { withFileTypes: true })
-        .then((data) => {
-            for (const key in data) {
-                if (data[key].isFile()) {
-                    fs.stat(dirP).then((file) =>
-                        console.log(`${dirP}/${data[key].name}: ${file.size}`)
-                    );
-                } else {
-                    logSizes(`${dirP}/${data[key].name}`);
+    return new Promise((resolve, reject) => {
+        fs.readdir(dirP, { withFileTypes: true })
+            .then((data) => {
+                for (const key in data) {
+                    if (data[key].isFile()) {
+                        fs.stat(dirP).then(
+                            (file) =>
+                                console.log(
+                                    `${dirP}/${data[key].name}: ${file.size}`
+                                ),
+                            resolve()
+                        );
+                    } else {
+                        logSizes(`${dirP}/${data[key].name}`);
+                    }
                 }
-            }
-        })
-        .catch((err) => console.log(err));
+            })
+            .catch((err) => reject(err));
+    });
 };
 
-logSizes(dirPath);
+// logSizes(dirPath)
+//     .then((data) => {
+//         console.log(data);
+//     })
+//     .then(() => console.log('done'));
+
+const log = async () => {
+    await logSizes(dirPath);
+    console.log('done');
+};
+log();
 
 // EX2
 
