@@ -79,7 +79,7 @@ module.exports.filterTweets = (tweets) => {
                     time: tweet.created_at,
                 }))
                 .sort((a, b) => {
-                    Date(b.created_at) < Date(a.created_at);
+                    new Date(b.created_at) - new Date(a.created_at);
                 });
             resolve(result);
         } catch (error) {
